@@ -1,66 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Koin Nusantara (KNU)</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Koin Nusantara (KNU) — Demokrasi digital & rewards berbasis blockchain.">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" href="assets/Koin_NUsantara.png">
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="Koin_NUsantara.png" alt="Logo KNU" />
-        <span>Koin Nusantara</span>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <img src="assets/Koin_NUsantara.png" alt="KNU" class="h-10 w-10">
+        <span class="font-extrabold text-lg">Koin Nusantara</span>
       </div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#tokenomics">Tokenomics</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="whitepaper.pdf" download>Whitepaper</a></li>
-      </ul>
-    </nav>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#about" class="hover:text-yellow-600">Tentang</a>
+        <a href="#tokenomics" class="hover:text-yellow-600">Tokenomics</a>
+        <a href="#roadmap" class="hover:text-yellow-600">Roadmap</a>
+        <a href="#whitepaper" class="hover:text-yellow-600">Whitepaper</a>
+        <button id="connectWallet" class="bg-gray-900 text-white px-4 py-2 rounded-xl hover:bg-gray-800">🔗 Connect Wallet</button>
+      </nav>
+      <button id="menuBtn" class="md:hidden border px-3 py-2 rounded-lg">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-3 space-y-2">
+      <a href="#about" class="block">Tentang</a>
+      <a href="#tokenomics" class="block">Tokenomics</a>
+      <a href="#roadmap" class="block">Roadmap</a>
+      <a href="#whitepaper" class="block">Whitepaper</a>
+      <button id="connectWalletMobile" class="w-full bg-gray-900 text-white px-4 py-2 rounded-xl">🔗 Connect Wallet</button>
+    </div>
   </header>
 
-  <section class="hero">
-    <img src="Koin_NUsantara.png" alt="Logo KNU" class="hero-logo" />
-    <h1>Koin Nusantara (KNU)</h1>
-    <p>Membangun Ekosistem Demokrasi Digital dengan Blockchain</p>
-    <a href="#about" class="btn">Pelajari Lebih Lanjut</a>
+  <!-- Hero -->
+  <section class="text-center py-24 bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 text-white" data-aos="fade-up">
+    <img src="assets/Koin_NUsantara.png" alt="Logo KNU" class="mx-auto h-28 mb-6 drop-shadow-xl">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Koin Nusantara (KNU)</h1>
+    <p class="text-lg md:text-xl opacity-95 max-w-2xl mx-auto">
+      Demokrasi digital yang memberi reward untuk partisipasi komunitas. Transparan. Inklusif. Berkelanjutan.
+    </p>
+    <div class="mt-8 flex gap-4 justify-center">
+      <a href="#whitepaper" class="bg-white text-yellow-700 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100">📄 Whitepaper</a>
+      <a href="#tokenomics" class="bg-gray-900 text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-black/80">Lihat Tokenomics</a>
+    </div>
   </section>
 
-  <section id="about">
-    <h2>Tentang KNU</h2>
-    <p>Koin Nusantara (KNU) adalah aset digital yang bertujuan membangun ekosistem demokrasi digital.
-       Dengan supply maksimal 300 juta token, KNU mendukung reward partisipasi masyarakat.</p>
+  <!-- About -->
+  <section id="about" class="max-w-5xl mx-auto py-16 px-6" data-aos="fade-right">
+    <h2 class="text-3xl font-bold mb-4 text-center">Tentang KNU</h2>
+    <p class="text-lg leading-relaxed text-center text-gray-700">
+      Koin Nusantara (KNU) adalah aset digital yang membangun ekosistem demokrasi digital di Nusantara.
+      Dengan suplai maksimum 300 juta token, KNU mendorong partisipasi warga melalui mekanisme reward berbasis blockchain.
+    </p>
   </section>
 
-  <section id="tokenomics">
-    <h2>Tokenomics</h2>
-    <p>Distribusi Supply Koin Nusantara (KNU):</p>
-    <ul>
-      <li>💰 Treasury / Ecosystem: 26.5%</li>
-      <li>👥 Team & Founders: 15.7%</li>
-      <li>🚀 Presale / Seed: 19.4%</li>
-      <li>💧 Liquidity: 9.8%</li>
-      <li>🎁 Community & Rewards: 10.1%</li>
-      <li>🤝 Partnership & Growth: 18.5%</li>
-    </ul>
+  <!-- Tokenomics with Chart -->
+  <section id="tokenomics" class="bg-gray-100 py-16 px-6" data-aos="zoom-in">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center">Distribusi Tokenomics</h2>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <canvas id="tokenChart" class="max-w-md mx-auto"></canvas>
+        <ul class="space-y-2 bg-white p-6 rounded-2xl shadow">
+          <li>👥 Team & Founders — <b>15.7%</b></li>
+          <li>🏛️ Treasury / Ecosystem — <b>26.5%</b></li>
+          <li>🚀 Presale / Seed — <b>19.4%</b></li>
+          <li>💧 Liquidity — <b>9.8%</b></li>
+          <li>🎁 Community & Rewards — <b>10.1%</b></li>
+          <li>🤝 Partnerships & Growth — <b>18.5%</b></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="roadmap">
-    <h2>Roadmap</h2>
-    <ol>
-      <li><b>Q3 2025:</b> Deploy Testnet & Whitepaper</li>
-      <li><b>Q4 2025:</b> Launch Presale & Staking</li>
-      <li><b>Q1 2026:</b> Listing Exchange Tier 2</li>
-      <li><b>Q2 2026:</b> Ekspansi Ekosistem & Governance</li>
-    </ol>
+  <!-- Roadmap -->
+  <section id="roadmap" class="max-w-5xl mx-auto py-16 px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-8">Roadmap</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow" data-aos="fade-up">
+        <h3 class="font-semibold text-xl mb-2">Q3 2025</h3>
+        <p>Deploy Testnet (Polygon Amoy) & publikasi whitepaper.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow" data-aos="fade-up" data-aos-delay="150">
+        <h3 class="font-semibold text-xl mb-2">Q4 2025</h3>
+        <p>Presale & listing DEX, audit smart contract.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="font-semibold text-xl mb-2">2026</h3>
+        <p>Mainnet, staking, dan dApp demokrasi digital.</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Koin Nusantara (KNU). All Rights Reserved.</p>
+  <!-- Whitepaper -->
+  <section id="whitepaper" class="bg-gray-100 py-16 px-6" data-aos="fade-left">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Whitepaper Koin Nusantara</h2>
+      <p class="text-gray-700 mb-6">Pelajari visi, misi, dan detail teknis KNU.</p>
+      <a href="assets/whitepaper.pdf" download class="inline-block bg-yellow-500 text-white px-6 py-3 rounded-xl shadow hover:bg-yellow-600">
+        📄 Download Whitepaper (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6">
+    <p>&copy; 2025 Koin Nusantara (KNU). All rights reserved.</p>
   </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- App Script -->
+  <script src="script.js"></script>
 </body>
 </html>
